@@ -41,10 +41,10 @@
         <script>
             function hitungKaos() {
                 var input = document.getElementById("angka").value;
-                var rubah = input.split([""]).filter(function (n) {
+                var rubah = input.split([" "]).filter(function (n) {
                     return n != "";
                 });
-
+                // console.log(rubah);
                 var duplicates = rubah.reduce(function (acc, el, i, arr) {
                     if (arr.indexOf(el) !== i && acc.indexOf(el) < 0) acc.push(el);
                     return acc;
