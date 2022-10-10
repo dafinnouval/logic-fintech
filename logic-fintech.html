@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="">
+            <h1>Hitung Jumlah kata</h1>
+            <textarea name="" id="kata" cols="30" rows="10"></textarea>
+            <button onClick="hitung()">hitung</button>
+            <br />
+            <br />
+            <input type="text" id="total" readonly />
+        </div>
+
+        <br />
+        <br />
+
+        <div class="">
+            <h1>Menghitung Kaos kaki</h1>
+            <input type="text" id="angka" />
+            <button onClick="hitungKaos()">hitung</button>
+            <br />
+            <br />
+            <input type="text" id="totalKaos" readonly />
+        </div>
+
+        <script type="text/javascript">
+            function hitung() {
+                var banyak_kata = document.getElementById("kata").value;
+                banyak_kata = banyak_kata.split(" ").filter(function (n) {
+                    return n != "";
+                });
+                document.getElementById("total").value = banyak_kata.length;
+            }
+        </script>
+
+        <script>
+            function hitungKaos() {
+                var input = document.getElementById("angka").value;
+                var rubah = input.split([""]).filter(function (n) {
+                    return n != "";
+                });
+
+                var duplicates = rubah.reduce(function (acc, el, i, arr) {
+                    if (arr.indexOf(el) !== i && acc.indexOf(el) < 0) acc.push(el);
+                    return acc;
+                }, []);
+
+                document.getElementById("totalKaos").value = duplicates.length;
+
+                console.log(duplicates);
+            }
+        </script>
+    </body>
+</html>
